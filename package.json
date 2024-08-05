@@ -1,6 +1,6 @@
 {
-  "engines" : {
-      "node" : "v20.14.0"
+  "engines": {
+    "node": "v20.14.0"
   },
   "dependencies": {
     "cloudinary": "^2.4.0",
@@ -21,5 +21,15 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0",
     "path": "^0.12.7"
-  }
+  },
+  "name": "majorproject",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vishakha",
+  "license": "ISC",
+  "description": ""
 }
