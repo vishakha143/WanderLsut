@@ -25,7 +25,7 @@ const listingsRouter = require("./routes/Listings.js");
 const reviewsRouter = require("./routes/Reviews.js");
 const usersRouter = require("./routes/users.js");
 
-const URL = 'mongodb://127.0.0.1:27017/Wanderlust'
+//const URL = 'mongodb://127.0.0.1:27017/Wanderlust'
 const dbUrl = process.env.ATLASDB_URL;
 
 main()
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname , "/public")));
 const store = MongoStore.create({
   mongoUrl :dbUrl,
   crypto : {
-    secret : process.env.SECRET
+    secret : process.env.SECRETE
   },
   touchAfter : 24*3600,
 });
@@ -63,7 +63,7 @@ store.on("error" , ()=>{
 
 const sessionOption = {
     store,
-    secret :process.env.SECRET,
+    secret :process.env.SECRETE,
     resave : false,
     saveUninitialized : true,
     cookie : {
