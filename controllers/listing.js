@@ -40,8 +40,7 @@ module.exports.createListing = async(req,res,next)=>{
 
     let API_URL = 'https://api.jawg.io/places/v1/search';
     let city = req.body.Listing.location;
-    let accessToken = process.env.MAP_TOKEN;
-    
+    let mapToken = process.env.MAP_TOKEN;
     
     
      let url = req.file.path;
@@ -55,7 +54,7 @@ module.exports.createListing = async(req,res,next)=>{
  
 
     let info = async()=>{
-        let res = await fetch(`${API_URL}?text=${city}&access-token=${accessToken}`);
+        let res = await fetch(`${API_URL}?text=${city}&access-token=${mapToken}`);
         let response = await res.json();
         console.log(response.features[0].geometry);
      

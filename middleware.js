@@ -5,7 +5,7 @@ const ExpressError = require("./utili/ExpressError.js");
 
 
 module.exports.isLoggedIn = (req , res , next)=>{
-    //console.log(req);
+    console.log(req.user);
     if(!req.isAuthenticated()){
         req.session.redirectUrl = req.originalUrl;
         req.flash("error" , "you must be logged in before using");
