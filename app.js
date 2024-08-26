@@ -42,7 +42,7 @@ async function main() {
 
 app.set("view engine" , "ejs");
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.json());
 app.use(methodOverride("_method"));
 app.engine("ejs" , ejsMate);
 app.set("views" , path.join(__dirname , "views"));
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname , "/public")));
 const store = MongoStore.create({
   mongoUrl :dbUrl,
   crypto : {
-    secret : process.env.SECRET
+    secret : process.env.SECRET,
   },
   touchAfter : 24*3600,
 });
@@ -93,8 +93,8 @@ passport.deserializeUser(User.deserializeUser());
 
 // Middle-ware for flash
 app.use((req , res , next)=>{
-  res.locals.success = req.flash("success");
-  res.locals.error = req.flash("error");
+  res.locals.success = req.flash(("success"));
+  res.locals.error = req.flash(("error"));
   res.locals.currUser = req.user;
   next();
 });

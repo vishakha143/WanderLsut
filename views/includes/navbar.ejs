@@ -50,11 +50,11 @@
 
         <div class="navbar-nav ms-auto">
           <a class="nav-link" href="/Listings/new">Airbnb your home</a>
-        <% if(!res.locals.currUser) { %>
+        <% if(!currUser) { %>
           <a class="nav-link" href="/signup"><b>SignUp</b></a>
           <a class="nav-link" href="/login"><b>Login</b></a>
         <% } %>
-        <% if(res.locals.currUser) { %>
+        <% if(currUser) { %>
           <a class="nav-link" href="/logout"><b>Logout</b></a>
           <% } %>
        </div>
