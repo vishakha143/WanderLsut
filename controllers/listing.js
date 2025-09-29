@@ -1,6 +1,6 @@
-const { response, json } = require("express");
+
 const Listing = require("../models/listing");
-const {listingSchema} = require("../schema.js");
+
 
 
 module.exports.index = async(req,res)=>{
@@ -14,7 +14,6 @@ module.exports.createForm =  (req,res)=>{
 };
 
 module.exports.showListing = async(req,res)=>{
-
 
     let {id}= req.params;
     // console.log(id);
@@ -38,23 +37,19 @@ module.exports.showListing = async(req,res)=>{
 
 module.exports.createListing = async(req,res,next)=>{
 
+    let url = req.file.path;
+    let filename = req.file.filename;
+    let newlisting = new Listing(req.body.Listing);
+    newlisting.owner = req.user._id; //to storing id of that particular user
+    newlisting.image = {url , filename};
+
     let API_URL = 'https://api.jawg.io/places/v1/search';
     let city = req.body.Listing.location;
     let mapToken = process.env.MAP_TOKEN;
     
-    
-     let url = req.file.path;
-    let filename = req.file.filename;
-
-    let result = listingSchema.validate(req.body);
-    //let {title , description , price , location , country} = req.body;
-    const newlisting = new Listing(req.body.Listing);
-    newlisting.owner = req.user._id; //to storing id of that particular user
-    newlisting.image = {url , filename};
  
-
     let info = async()=>{
-        let res = await fetch(`${API_URL}?text=${city}&access-token=${mapToken}`);
+        let res = await fetch(`${API_URL}?&access-token=${mapToken}&text=${city}`);
         let response = await res.json();
         console.log(response.features[0].geometry);
      

@@ -27,7 +27,6 @@ router
           WrapAsync(listingController.showListing))  //Show Route
     .put(
         isLoggedIn,
-        isOwner ,
         upload.single('Listing[image]'),
         validateListing,
           WrapAsync(listingController.updateListing))  //Update Route

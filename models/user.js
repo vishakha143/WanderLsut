@@ -8,7 +8,8 @@ const userSchema = new Schema({
     email : {
         type : String,
         required : true,
-    }
+    },
+    // role:{type:String,enum : ['student','Trecher']}
 });
 
 // to implement those above default without building it from strach
