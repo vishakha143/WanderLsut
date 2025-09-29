@@ -54,7 +54,7 @@ A robust, full-stack Content Management System (CMS) developed using the MEEN st
 
 ## 🌐 Deployment (If Applicable)
 
-* **Live Demo:** [Link to your deployed application on Render, Heroku, or AWS]
+* **Live Demo:** [https://wander-lsut-6sujtwnuh-vishakha143s-projects.vercel.app/Listings]
 
 ## 👤 Author
 
